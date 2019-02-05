@@ -1,0 +1,21 @@
+#!/bin/bash
+set -ex
+
+if [ -z "$1" ]
+ then
+    echo "No argument supplied"
+    exit 1
+fi
+
+rm -rf glpi
+rm -rf fusioninventory
+
+git clone https://github.com/EnzoAkira/glpi
+
+git clone https://github.com/EnzoAkira/fusioninventory-for-glpi fusioninventory
+
+rm -rf glpi/.git glpi/install/install.php
+rm -rf fusioninventory/.git
+
+docker build -t enzoakira/glpi:$1 .
+docker push enzoakira/glpi:$1
