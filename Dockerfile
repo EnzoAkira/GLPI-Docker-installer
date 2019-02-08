@@ -1,4 +1,4 @@
-FROM php:5.6.38-apache
+FROM php:5.6.40-apache
 
 COPY ./glpi /var/www/html
 
