@@ -1,11 +1,11 @@
 version: "3"
 services:
   glpi:
-    image: enzoakira/glpi:9.3.3.5
+    image: enzoakira/glpi:9.4.2
     networks:
       - webglpi
     ports:
-      - "410:80"
+      - "40000:80"
   mariadb:
     image: mariadb
     hostname: mariadb
@@ -24,7 +24,7 @@ services:
     networks:
       - webglpi
     ports:
-      - "420:8080"
+      - "40020:8080"
 networks:
   webglpi:
 volumes:
