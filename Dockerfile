@@ -4,6 +4,8 @@ COPY ./glpi /var/www/html
 
 COPY ./fusioninventory /var/www/html/plugins/fusioninventory
 
+COPY ./config_db.php /var/www/html/config
+
 RUN chown -R www-data:www-data /var/www/html && chmod -R ug+rw /var/www/html/
 
 RUN apt-get update \
