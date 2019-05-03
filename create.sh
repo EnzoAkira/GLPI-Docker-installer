@@ -13,7 +13,8 @@ read -sp 'Password Db: ' passvar
 if [ -z "$passvar" ]
  then
     echo "No argument supplied, default will be used"
-    $passvar = "admin"
+    passvar = admin
+    sed -i -e "s/SOMEPASS/$passvar/" ./docker-compose.yml
 fi
 
 echo "Removing old glpi & fusioninventory"
