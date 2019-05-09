@@ -1,4 +1,4 @@
-FROM php:7.2.17-apache
+FROM php:7.2.18-apache
 
 COPY ./glpi /var/www/html
 

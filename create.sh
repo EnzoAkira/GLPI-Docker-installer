@@ -36,6 +36,6 @@ mv glpi/install/install.php glpi/install/install.php.bak
 echo "Modifying Db password"
 sed -i -e "s/Change-me/$passvar/" ./config_db.php
 
-echo "Build docker image"
+echo "Building docker image"
 docker build -t enzoakira/glpi:$1 .
 docker push enzoakira/glpi:$1
