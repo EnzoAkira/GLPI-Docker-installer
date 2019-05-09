@@ -14,7 +14,7 @@ services:
     networks:
       - web
     volumes:
-      - "/var/lib/mysql/db_glpi:/var/lib/mysql/db_glpi"
+      - "db_data:/var/lib/mysql/db_glpi"
     environment:
       - MYSQL_ROOT_PASSWORD=SOMEPASS
       - MYSQL_DATABASE=glpi_db
@@ -29,3 +29,6 @@ services:
       - "40020:8080"
 networks:
   web:
+
+volumes:
+  db_data:
