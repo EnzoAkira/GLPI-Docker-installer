@@ -1,18 +1,20 @@
 version: "3"
 services:
   glpi:
-    image: enzoakira/glpi:9.4.2
+    image: enzoakira/glpi:9.4.3
+    container_name: glpi_web
     networks:
       - web
     ports:
       - "40000:80"
   mariadb:
     image: mariadb
+    container_name: glpi_db
     hostname: mariadb
     networks:
       - web
     volumes:
-      - "db_data:/var/lib/mysql"
+      - "/var/lib/mysql/db_glpi:/var/lib/mysql/db_glpi"
     environment:
       - MYSQL_ROOT_PASSWORD=SOMEPASS
       - MYSQL_DATABASE=glpi_db
@@ -20,11 +22,10 @@ services:
       - MYSQL_PASSWORD=SOMEPASS
   adminer:
     image: adminer
+    container_name: glpi_db_admin
     networks:
       - web
     ports:
       - "40020:8080"
 networks:
   web:
-volumes:
-  db_data:
