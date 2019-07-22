@@ -2,14 +2,12 @@ version: "3"
 services:
   glpi:
     image: enzoakira/glpi:9.4.3
-    container_name: glpi_web
     networks:
       - webglpi
     ports:
       - "410:80"
   mariadb:
     image: mariadb
-    container_name: glpi_db
     hostname: mariadb
     networks:
       - webglpi
