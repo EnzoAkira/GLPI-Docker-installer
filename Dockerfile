@@ -1,4 +1,4 @@
-FROM php:7.2.18-apache
+FROM php:7.2.20-apache-stretch
 
 COPY ./glpi /var/www/html
 
